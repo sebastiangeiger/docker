@@ -119,6 +119,9 @@ end
 # every single provider has an override, and every single one configures
 # "vm.provision".  Much saddness, but such is life.
 Vagrant::VERSION >= "1.1.0" and Vagrant.configure("2") do |config|
+
+  config.vm.synced_folder "/Users/seb/MO", "/source_code"
+
   config.vm.provider :aws do |aws, override|
     username = "ubuntu"
     override.vm.box_url = AWS_BOX_URI
